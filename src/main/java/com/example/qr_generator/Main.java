@@ -20,7 +20,6 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class Main extends Application {
-    private int qrSize;
     private Scene scene;
     private Path qrPath;
 
@@ -31,7 +30,6 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        this.qrSize = 1000;
         stage.setTitle("QR Generator");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("qr_generator.fxml"));
         VBox root = fxmlLoader.load();
@@ -50,7 +48,7 @@ public class Main extends Application {
                 Files.createDirectories(destPath.getParent());
             }
             Files.move(tempFile.toPath(), destPath, StandardCopyOption.REPLACE_EXISTING);
-            System.out.println("QR kód úspěšně uložen do: " + destPath.toAbsolutePath());
+            System.out.println("QR kód uložen do: " + destPath.toAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -71,10 +69,10 @@ public class Main extends Application {
         String title = nameField.getText();
 
         if (data.isBlank() || title.isBlank()) {
-            responseLabel.setText("Prosim vyplnte textova pole");
+            responseLabel.setText("Prosím vyplňte textová pole");
             return;
         } else if (qrPath == null) {
-            responseLabel.setText("Prosim vybertu cestu");
+            responseLabel.setText("Prosím vyplňte složku k uložení");
             return;
         }
 
