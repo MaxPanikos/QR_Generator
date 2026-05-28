@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.DirectoryChooser;
@@ -24,7 +25,9 @@ public class Main extends Application {
     private Path qrPath;
 
     @FXML
-    private TextField dataField, nameField;
+    private TextField nameField;
+    @FXML
+    private TextArea dataArea;
     @FXML
     private Label responseLabel;
 
@@ -65,7 +68,7 @@ public class Main extends Application {
     }
     @FXML
     private void generateQRButton() {
-        String data = dataField.getText();
+        String data = dataArea.getText();
         String title = nameField.getText();
 
         if (data.isBlank() || title.isBlank()) {
