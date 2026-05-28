@@ -7,7 +7,11 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.Text?>
-<VBox fx:controller="com.example.qr_generator.Main" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="TOP_CENTER">
+<?import javafx.geometry.Insets?>
+<VBox fx:controller="com.example.qr_generator.Main" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER">
+    <padding>
+        <Insets top="10" left="5" right="5" bottom="10"/>
+    </padding>
     <Label text="QR Generator" />
     <TextArea fx:id="dataArea" promptText="Text do QR kodu"/>
     <TextField fx:id="nameField" promptText="Nazev souboru"/>
