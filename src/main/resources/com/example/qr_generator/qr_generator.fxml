@@ -12,6 +12,6 @@
     <TextField fx:id="dataField" promptText="Text do QR kodu" />
     <TextField fx:id="nameField" promptText="Nazev souboru" />
     <Button text="Vybrat cil" onAction="#choosePath"/>
-    <Button text="Vytvorit QR kod" onAction="#generateQR" />
+    <Button text="Vytvorit QR kod" onAction="#generateQRButton" />
     <Label fx:id="responseLabel"/>
 </VBox>

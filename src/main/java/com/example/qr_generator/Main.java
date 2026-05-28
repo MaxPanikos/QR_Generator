@@ -43,9 +43,9 @@ public class Main extends Application {
         launch(args);
     }
 
-    private void generateQR(String data, String title, Path destPath) {
+    private void generateQR(String data, String title, Path destPath, int size) {
         try {
-            File tempFile = QRCode.from(data).to(ImageType.PNG).withSize(qrSize, qrSize).file(title);
+            File tempFile = QRCode.from(data).to(ImageType.PNG).withSize(size, size).file(title);
             if (destPath.getParent() != null) {
                 Files.createDirectories(destPath.getParent());
             }
@@ -66,7 +66,7 @@ public class Main extends Application {
         }
     }
     @FXML
-    private void generateQR() {
+    private void generateQRButton() {
         String data = dataField.getText();
         String title = nameField.getText();
 
@@ -80,7 +80,7 @@ public class Main extends Application {
 
         Path fullPath = qrPath.resolve(title + ".png");
 
-        generateQR(data, title, fullPath);
-        responseLabel.setText("");
+        generateQR(data, title, fullPath, 1000);
+        responseLabel.setText("QR kód byl úspěšně vytvořen");
     }
 }
